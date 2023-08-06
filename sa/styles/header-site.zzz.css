@@ -1,0 +1,259 @@
+header .site {
+    --svg-logo-size: calc((var(--header-site-height) + var(--header-page-height) ) * .87);
+    --svg-menu-size: calc(var(--header-site-font-size) * 1.3);
+    --padding: 0 .2em 0 .2em;
+    --padding-menu: 0 .5em 0 .5em;
+    --logo-margin: 0 .8vw 0 0vw;
+
+    font-size: var(--header-site-font-size);
+    height: var(--header-site-height);
+    display: flex;
+    /* vertical */
+    align-items: center;
+    /* horizontal */
+    justify-content: start;
+
+    background-color: var(--header-site-bkgnd);
+    box-shadow: 0 .1em .1em rgba(0, 0, 0, 0.3); /* x, y, blur */
+}
+
+header .site svg {
+    width: var(--svg-menu-size);
+    height: var(--svg-menu-size);
+    fill: var(--link-color);
+}
+header .site .logo svg {
+    width: var(--svg-logo-size);
+    height: var(--svg-logo-size);
+    margin: var(--logo-margin);
+    margin-top: calc(var(--svg-logo-size) - var(--header-site-height) + 0em);
+    transition-property: width, height, margin, margin-top;
+    transition-duration: 0.2s;
+
+    transform: translateZ(0);
+    /*
+    animation: rotateCW 0.17s linear;
+    animation-iteration-count: 6;
+    */
+    fill: var(--logo-fill);
+}
+header .site .logo svg.small {
+    --svg-logo-size-small: calc(var(--header-site-height) * .87);
+    /* width reset to move center of svg on shrink */
+    width: var(--svg-logo-size-small);
+    height: var(--svg-logo-size-small);
+    margin-top: 0.0em;
+}
+
+header .site section {
+    display: flex;
+}
+header .site .logo {
+    flex: initial;
+    /* fixed width to prevent motion @ svg.small */
+    /* flex-shrink:0; FAILs to prevent shrink on svg.small */
+    width: calc(var(--header-site-height) * 1.8);
+    /* background-color: transparent; */
+}
+
+header .site .wrapper {
+    flex: 1;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-site-height);
+}
+header .site .menu {
+    position: relative;
+    flex: 1; 
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around;
+    margin-right: 0em;
+}
+header .site .menu ul {
+    background: var(--menu-bkgnd);
+}
+header .site ul {
+    display: flex;
+}
+
+/* always display the site menu */
+header .site .menu button {
+    display: block;
+}
+/*
+header .site .menu button,
+*/
+header .site .menu li a[href="#account"] {
+    display: none;
+}
+header .site .menu li a {
+    display: block;
+    font-weight: bold;
+    padding: var(--padding-menu);
+    line-height: var(--header-site-height);
+    color: var(--menu-link-color);
+}
+header .site .menu li a.active {
+    color: var(--menu-active-color);
+    background: var(--menu-active-bkgnd) !important;
+}
+header .site .menu li a:hover,
+header .site .menu li a:focus {
+    color: var(--text-bkgnd);
+    background: var(--link-color);
+}
+header .site .menu li a.active:hover,
+header .site .menu li a.active:focus {
+    opacity: .8;
+}
+
+
+header .site .widgets {
+    flex: 2;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* header : .aux / .action */
+
+#http {
+    font-size: .7em;
+}
+
+header .site .aux {
+    --aux-bkgnd: #c5e04d;
+    --aux-transient: #6f0;
+    --aux-hover: var(--aux-transient);
+}
+header .site .aux>span,
+header .site .action>span {
+    font-family: monospace;
+    /* font-size: .8em; */
+    color: var(--hover-color);
+    margin: .1em .2em .1em 0;
+    /* padding: var(--padding); */ /* @ sans-serif */
+    padding: .15em .2em 0 .3em; /* @ monospace */
+    border-radius: 1em;
+}
+header .site .action>span {
+    color: var(--menu-link-color);
+}
+header .site .aux>span {
+    opacity: 0;
+    margin-right: .6em;
+    background: var(--aux-bkgnd);
+    border: 1px var(--aux-bkgnd) solid;
+}
+header .site .aux>span[data-net="fail"] {
+    color: var(--fail-color);
+    --aux-bkgnd: var(--fail-bkgnd);
+    --aux-transient: var(--fail-bkgnd);
+    --aux-hover: var(--fail-bkgnd);
+}
+header .site .aux>span[data-net="info"] {
+    color: var(--info-color);
+    --aux-bkgnd: var(--info-bkgnd);
+    --aux-transient: var(--info-bkgnd);
+    --aux-hover: var(--info-bkgnd);
+}
+header .site .action>span a {
+    padding: .1em .2em .1em .2em;
+    border-radius: 1em;
+}
+
+header .site .aux span:hover {    
+    background: var(--aux-transient)
+}
+
+header .site .aux>*:hover,
+header .site .aux>*:active {
+    background: var(--aux-hover);
+    border: 1px var(--aux-hover) solid;
+    cursor: default;
+}
+
+/* slim */
+
+@media only screen and (max-width: 920px) {
+
+    header .site {
+        justify-content: end;
+    }
+    
+    header .site .wrapper {
+        flex-direction: row-reverse;
+        justify-self: start;
+    }
+    header .site .menu {
+        --menu-x: 50vw; /* width === left-margin of section.menu */
+        height: var(--header-site-height);
+        flex: 0;
+        align-items: start;
+        justify-content: end;
+    }
+
+    header .site .menu button  {
+        display: block;
+        width: calc(var(--svg-size) * 1.1);
+        margin-top: calc(var(--header-site-height) * .22);
+        margin-right: .5rem;
+        cursor: pointer;
+   }
+    header .site .menu button svg {
+        display: block;
+    }
+    header .site .menu button svg.menu-close  {
+        display: none;
+    }
+
+    header .site .menu button:focus svg {
+        fill: var(--text-bkgnd);       
+    } 
+    header .site .menu button svg.menu-open:hover,
+    header .site .menu button svg.menu-open:focus {
+        animation-name: heartBeat;
+        animation-duration: 0.5s;
+        animation-timing-function: ease-in-out;
+    }
+
+    header .site .menu ul {
+        /* toggle @ JS */
+        display: none;
+        margin-left: calc(var(--menu-x) * -1);
+        margin-top: calc(var(--header-site-height) + var(--header-page-height));
+
+        background: var(--menu-bkgnd);
+        opacity: .9;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    header .site section.menu ul.show {
+        display: block;
+        opacity: .5;
+    }
+    header .site section.menu ul li {
+        font-size: var(--header-site-font-size);
+        width: var(--menu-x); 
+    }
+    header .site section.menu ul li a {
+        display: block;
+        padding: var(--padding);
+        line-height: calc(var(--header-site-font-size) + .4em);
+    }
+
+    header .site section.widgets {
+        flex-wrap: wrap; /* prevent interfering with dropdown menu */
+        justify-content: right;
+    }
+    header .site section.aux {
+        /* font-size: .6em; */  
+    }
+
+    header .site section.action {
+        /* font-size: .7em; */
+        /* display: none; */ 
+        /* toggle @ JS */
+    }
+}

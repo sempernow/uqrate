@@ -1,0 +1,35 @@
+#form-container #form-signup-claim {
+    font-size: .7em;
+}
+#form-container label[for=form-signup-claim] {
+    width: 4.5em;
+}
+#form-container label[for=form-signup-display] {
+    width: 6.7em;
+}
+#form-container label[for=form-signup-handle] {
+    width: 5.1em;
+}
+#form-container label[for=form-signup-email] {
+    width: 3em;
+}
+
+/*  @ failReport()  */
+
+#step-2 h1 {
+    opacity: .5;
+}
+#step-2 h1:hover,
+#step-2 h1:focus {
+    opacity: 1;
+}
+
+
+div.report {
+    font-size: 1.5rem;
+    margin: 2em auto 2em auto;
+    text-align: center;
+}
+div.report h1 {
+    margin-bottom: .5em;
+}

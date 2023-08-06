@@ -1,0 +1,76 @@
+
+#form-msg form {
+    padding: 0 1em 0 0;
+    width: auto;
+    margin-top: .3em;
+    margin-bottom: 1em;
+    /* padding-left: var(--msg-avatar-size); */
+    box-shadow: none;
+}
+
+#form-msg-new button,
+#form-msg button {
+    font-size: 1.2rem;
+    padding: .3em 0 .3em 0;
+}
+
+/*  #form-msg-new  */
+
+#form-msg-new {
+    --thread-margin-right: .2em;
+    padding: .5em;
+    margin: .5em;
+    margin-left: var(--thread-margin-right);
+    margin-right: var(--thread-margin-right);
+    border-radius: .5em;
+    color: var(--form-border-color);
+    background: var(--text-bkgnd);
+    /* box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); */
+    box-shadow: 0 .15em .2em rgba(0, 0, 0, 0.2);
+}
+#form-msg-new:hover,
+#form-msg-new:focus {
+    /* offset-x | offset-y | blur-radius | spread-radius | color */
+    box-shadow: 0 .15em .4em .1em  rgba(0, 0, 0, 0.2);
+}
+
+#form-msg-new form,
+#form-msg-new input,
+#form-msg-new button {
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+}
+#form-msg-new button.form-msg-new {
+    margin: 0;
+}
+
+#form-msg-new form {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+#form-msg-new svg {
+    width: 2em;
+    height: 2em;
+    margin: auto;
+    fill: var(--form-bkgnd);
+}
+
+#form-msg label[for="title"] {
+    width: 2.7em;
+}
+#form-msg label[for="body"] {
+    width: 4.5em;
+}
+
+#msg-zero #form-msg form,
+#msg-zero #form-msg fieldset, 
+#msg-zero #form-msg label {
+    background: var(--chn-bkgnd);
+}

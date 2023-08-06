@@ -1,0 +1,96 @@
+
+#form-container label.invalid {
+    color: var(--form-invalid);
+    font-weight: bold;
+}
+
+#form-container label[for=form-login-user] {
+    /* width: 7.9em; @ 'Email or Handle' */
+    width: 9.1em;
+}
+
+#form-container label[for=form-login-pass] {
+    width: 4.8em;
+}
+#app h1.report {
+    margin-top: 3.5em;
+    padding-top: 1em;
+}
+
+/*  #oauth  */
+
+#oauth {
+    width: 80%;   /* center */
+    margin: auto;  /* center */
+    margin-bottom: 1em;
+}
+#oauth>* {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    width: auto;    /* center */
+    margin: auto;   /* center*/
+}
+
+#oauth h2 {
+    margin-bottom: .5em;
+}
+
+#oauth a,
+#oauth span,
+#oauth svg  {
+    width: var(--oauth-link-size);
+    height: var(--oauth-link-size);
+}
+#oauth a  {
+    margin: .8em;
+    border-radius: 20%;
+}
+#oauth svg use {
+    fill: var(--link-color);
+}
+
+/***  hover FX : brand colors  ***/
+
+#oauth svg use[href="#def-amazon"]:hover,
+#oauth svg use[href="#def-google"]:hover,
+#oauth svg use[href="#def-paypal"]:hover {
+    fill: #fff;
+}
+#oauth svg use[href="#def-stripe"]:hover {
+    fill: #635bff;
+}
+#oauth svg use[href="#def-github"]:hover {
+    fill: #000;
+}
+
+#oauth svg {filter: grayscale(.95);} 
+
+#oauth a:hover,
+#oauth span:hover,
+#oauth svg:hover,
+#oauth a:focus,
+#oauth span:focus,
+#oauth svg:focus {
+    animation-name: heartBeatSmall;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+
+    background: transparent;
+    filter: grayscale(0);
+}
+
+/*
+symbol .icon {
+    filter: grayscale(1);
+}
+symbol .icon:hover {
+    filter: grayscale(0);
+}
+
+#oauth use[href="#def-amazon"]:hover,
+#oauth use[href="#def-amazon"]:focus {
+    fill: #f90;
+}
+*/

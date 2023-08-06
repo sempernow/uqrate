@@ -1,0 +1,22 @@
+/* === @ xpSpinner3() :: dataset version */
+#def-app-logo {
+}
+.chi, 
+.rho,
+.trinity,
+.arcs path {
+    /* fill:var(--logo-fill); */
+
+}
+
+.arcs path[data-spinner=on] {
+    fill: var(--text-color);
+
+}
+
+.chi[data-spinner=on],
+.rho[data-spinner=on],
+.trinity[data-spinner=on] {
+    fill: var(--link-color) !important;
+
+}

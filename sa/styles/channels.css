@@ -1,0 +1,1008 @@
+
+#uqrate-org-banner svg {
+    margin: auto;
+    width: 100%;
+    border: 1px solid black;
+}
+
+/***  channel list  ***/
+
+#chn-list {
+    /* REQUIRED, else affects structurally; width of parent flexbox */
+    box-sizing: border-box;
+    width: auto;
+    max-width: var(--width-main);
+}
+
+#centre .channel-of-list {
+    margin-right: var(--thread-margin-right);
+    margin: 0.5em .2em 1em .2em;
+    border: 1px solid transparent;
+    border-radius: 1em;
+    box-shadow: 0 .15em .2em rgba(0, 0, 0, 0.2);
+    background: var(--text-bkgnd);
+
+    animation: onLoad 1s ease-in-out;
+    filter: grayscale(70%);
+}
+@keyframes onLoad {
+    /***********************************************************************************
+      Set max-height property (end state) to a value greater than that of its target. 
+    ***********************************************************************************/
+    from {
+        max-height: 0;
+        overflow: hidden;
+    }
+    to {
+        max-height: 9999px;
+        overflow: hidden;
+    }
+} 
+#centre .channel-of-list:hover,
+#centre .channel-of-list:focus {
+    /* offset-x | offset-y | blur-radius | spread-radius | color */
+    box-shadow: 0 .15em .4em .1em rgba(0, 0, 0, 0.2);
+    filter: grayscale(0%);
+}
+
+#centre .channel-of-list > * {
+    margin: 0;
+    padding: 0;
+    background: white;
+}
+#centre .channel-of-list .main {
+    padding: 0.4em;
+}
+#centre .channel-of-list h4, 
+#centre .channel-of-list p {
+    padding: 0;
+    margin: 0;
+}
+#centre .channel-of-list .head {
+    display: flex;
+}
+#centre .channel-of-list h4 {
+    font-size: 2rem;
+}
+#centre .channel-of-list .banner img,
+#centre .channel-of-list .banner svg {
+    
+}
+#centre .channel-of-list .avatar img,
+#centre .channel-of-list .avatar svg {
+    position: relative;
+    top: calc(-1.2 * var(--msg-avatar-size));
+    width: calc(2* var(--msg-avatar-size));
+    height: calc(2* var(--msg-avatar-size));
+    border: 5px solid var(--body-bkgnd);
+    border-radius: 50%;
+    margin: 0 0.5em 0 0;
+    background: var(--text-bkgnd);
+}
+#centre .channel-of-list .avatar {
+    height: calc(0.6 * var(--msg-avatar-size));
+}
+#centre .channel-of-list .main p {
+    margin-top: 0.5em;
+}
+
+#centre .channel-of-list .tags {
+    margin-top: 0.4em;
+    padding: 0.4em;
+    background: var(--body-bkgnd);
+}
+#centre .tags .sep {
+    opacity: .4;
+}
+
+/*******************
+    @ #owner
+********************/
+#owner {
+    max-width: var(--width-aside);
+    overflow: hidden;
+    /* border-bottom: 10px solid var(--text-bkgnd); */
+    /*
+    font-family: monospace;
+    font-size: .7em;
+    */
+}
+#owner .badge,
+#owner .channel {
+    margin-left: .3em;
+    margin-right: .3em;
+}
+#owner .channel {
+    margin-top: 1em;
+}
+#owner .embed .channel {
+    margin-top: 0;
+}
+#channel-header.embed {
+    margin-top: .5em;
+}
+#owner .upper {
+    max-width: var(--width-aside);
+    height: auto;
+    overflow: hidden;
+}
+
+#owner .upper span.uqrate {
+    color: var(--sponsub-color);
+    opacity: 1;
+}
+#owner .banner {
+    width: var(--width-aside);
+    height: auto;
+    filter: grayscale(85%);
+}
+#owner .banner:hover,
+#owner .banner:focus, 
+#owner .banner:active {
+    filter:grayscale(0%);
+}
+
+#owner .core {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+}
+#owner .avatar {
+    flex-basis: var(--size-avatar);
+    margin-right: .9em;
+}
+#owner .avatar {
+    width: var(--size-avatar);
+    height: var(--size-avatar);
+    position: relative;
+    top: calc(-0.3 * var(--size-avatar));
+    left: 5%;
+    background: var(--text-bkgnd); 
+    border-radius: 50%;
+    border: 5px solid var(--body-bkgnd);
+    margin-bottom: -40px;
+}
+#owner .names {
+    margin-bottom: 1em;
+    /* z-index: 2; */
+}
+#owner .handle {
+    opacity: .5;
+}
+#owner .badges {
+    position: relative;
+    font-size: 2em;
+    /* z-index: 2; */
+}
+
+/* Following/Followers/Channels(count) */
+#owner .about {
+    width: auto;
+}
+#owner .about p {
+    max-width: 30em;
+    margin: .5em 0 .5em 0;
+}
+#owner .about h2 {
+    font-size: 1.2rem; /* User.Display */
+}
+#owner .about h3 {
+    padding: .4em 0 0 0;
+}
+#owner .about h3.handle {
+    padding: 0;
+}
+#owner .about h3 span {
+    opacity: .5;
+}
+#owner .about h3 a {
+    opacity: 1;
+    padding: 0 .5em 0 0.5em;
+    margin-left: .5em;
+}
+#owner .about a {
+    opacity: 1;
+    padding: 0 .3em 0 .3em;
+}
+#owner .about a:hover {
+    opacity: 1;
+}
+#owner .about a:active {
+    opacity: .3;
+}
+
+#owner .stats table {
+width: 100%;
+margin-top: .5em;
+border: 5px solid var(--table-bkgnd);
+}
+#owner .stats table,
+#owner .stats th,
+#owner .stats td {
+    border: 4px solid var(--table-bkgnd);
+    border-collapse: collapse;
+}
+#owner .stats td {
+    font-weight: bold;
+    text-align: center;
+    color: var(--title-color);
+    padding: .2em;
+}
+#owner .stats th {
+    color: var(--table-th-color);
+    background: var(--table-bkgnd);
+    /* background: var(--table-bkgnd); */
+}
+/* Channel.Title */
+#owner .channel h3 {
+    font-size: 1.4rem;
+}
+#owner .channel h3 a {
+    color: var(--link-color);
+    background: inherit;
+}
+#owner .channel h3 a:focus,
+#owner .channel h3 a:hover {
+    color:  var(--text-bkgnd);
+    background: var(--link-color);
+}
+
+/* channel buttons : Follow, q, P */
+
+#owner .channel .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    flex-wrap: wrap;
+}
+/* (Follow), (q,P) */
+#owner .channel .buttons>* {
+    display: flex;
+    align-items: center;
+    height: 3.5rem;
+}
+#owner .channel .follow {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-right: .5em;
+}
+#owner .channel .sponsor{
+}
+#owner .channel .sponsor>div {
+    display: flex;
+    align-items: center;
+    min-width: 5em;
+}
+#owner .channel .thanks {
+    font-style: italic;
+    font-weight: bold;
+    color: var(--text-color);
+}
+#owner .channel a,
+span.button {
+    color: var(--text-bkgnd);
+    background: var(--link-color);
+}
+#owner .channel a:hover {
+    color: var(--link-color);
+    background: var(--text-bkgnd);
+}
+#owner .sponsor svg {
+    display: block;
+    position: relative;
+    padding: .25em;
+    margin: 0 .3em 0 0;
+    width: calc(1.5* var(--msg-option-svg-size));
+    height: calc(1.5* var(--msg-option-svg-size));
+    text-align: center;
+    fill: var(--text-bkgnd);
+    background: var(--link-color);
+    border-radius: 50%;
+}
+#owner .sponsor svg:hover,
+#owner .follow span.button:hover {
+    fill: var(--link-color);
+    color: var(--link-color);
+    background: var(--text-bkgnd);
+}
+/*
+#owner .warn:hover {
+    fill: var(--fail-color) !important;
+    background-color: var(--fail-bkgnd) !important;
+}
+*/
+#owner .sponsor svg:active,
+#owner .follow span.button:active {
+    opacity: .7;
+}
+
+#owner .lower {
+    padding-bottom: 0.8em;
+    margin-left: 0em;
+    margin-top: .7em;
+}
+#owner .lower>div {
+    margin-bottom: 1em;
+}
+#owner .lower h3 {
+    padding: .1em 0 .2em .2em;
+    color: var(--header-site-bkgnd);
+    background: var(--title-bkgnd);
+}
+
+/*  channels  */
+
+#owner .channels {
+    margin-bottom: 1em;
+}
+#owner .channels li {
+    /*
+    display: flex;
+    justify-content: space-between;
+    */
+    font-size: 1.2em;
+    font-weight: bold;
+}
+#owner .channels li {
+    margin-left: .2em;
+    margin-right: .4em;
+}
+
+/***************************
+    @ #account | #exchange
+***************************/
+
+#app {
+    margin: auto;
+    margin: 3.5em .2em 1em .2em;
+}
+
+#app .header {
+    margin-bottom: .5em;
+}
+#app .header h1 {
+    padding: 0 0 0 0;
+    margin: 0;
+}
+#app .header p {
+    padding: 0;
+}
+#app h1 {
+    font-size: 2em;
+    margin: 0 0 .6em 0;
+}
+#app h1 span,
+#app p span,
+#app table span {
+    font-family: uqrate;
+}
+#app h1 span {
+    font-size: 1.7em;
+}
+
+#app h2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--title-bkgnd);
+    color: var(--header-site-bkgnd);
+    padding: 0.2em 0.3em 0.2em 0.3em;
+    margin: 0.2em 0 0.1em 0;
+}
+#app a h2 {
+    color: var(--link-color);
+}
+#app a h2:hover {
+    color: var(--title-bkgnd);
+    background: var(--header-site-bkgnd);
+}
+#app dd ol,
+#app dd ul {
+    list-style-position: inside;
+    margin-left: .6em;
+}
+#app li {
+    line-height: 1.1em;
+}
+#app p {
+    width: 90%; /* width interferes with that of #msg-list .sponsor lest flex-basis added thereto */
+    line-height: 1.5em;
+    padding-top: 0.5em;
+    margin-left: .6em;
+}
+#app p span,
+#app table span {
+    color: var(--header-site-bkgnd);
+    opacity: .6;
+}
+#app p span.date {
+    font-family: monospace;
+    margin-left: .5em;
+}
+#app .header,
+#app .header p {
+    padding: 0;
+}
+#app blockquote {
+    font-size: 1.6rem;
+    font-style: italic;
+    text-align: center;
+    padding-top: .7em;
+    padding-bottom: 1em;
+    padding: 1.1em 1em 1.4em 1em;
+    width: auto;
+    margin: 1em 2.3em 1.3em 2.5em;
+    background: var(--app-strong-bkgnd);
+    /* 
+    background: var(--title-bkgnd); 
+    filter: grayscale(50%);
+    */
+    opacity: .9;
+    border-radius: 50%;
+}
+#app .form-container {
+    margin: 0;
+}
+
+#terms h2 {
+    margin-top: 1em;
+}
+#terms .payout-graphic{
+    width: 75%;
+    margin: 2.5em 0 .5em 1em;
+
+}
+#terms table {
+    margin-top: 1.5em;
+    margin-left:1em;
+    border-spacing: 0.2rem;
+    background:#ccb;
+}
+#terms th, 
+#terms td {
+    padding: 0.5rem;
+    background: #fff;
+}
+#terms th {
+    background:#ddc;
+}
+#terms sup {
+    color: #554;
+    opacity: 1;
+
+}
+#terms small {
+    font-size: .9rem;
+}
+#terms blockquote {
+    padding: 2rem;
+    margin: 1rem 3rem 1rem .5rem;
+    text-align: left;
+    line-height: 1.7rem;
+    font-size: inherit;
+    font-style: inherit;
+    background: #ddc;
+    border: none;
+    border-radius: 0;
+}
+#terms blockquote span {
+    font-family: uqrate;
+    opacity: .5;
+}
+#terms p,
+#privacy p,
+#install p {
+    padding: .5em 0 .5em 0;
+    margin: .5em 0 0 0;
+}
+#install ul li {
+    list-style-type: circle;
+    list-style-position: outside;
+    margin-left: 1.7em;
+}
+#install ol li {
+    list-style-position: outside;
+    margin-left: 0.5em;
+}
+#install blockquote {
+    padding: .5em;
+    margin: .5em 0 .5em 0;
+    border: none;
+    border-radius: 0;
+    font-style: normal;
+    font-size: inherit;
+    text-align: left;
+}
+
+#install dd p {
+    padding: 0 0 .5em 1em;
+}
+#install dd p,
+#install dd ol {
+    padding-left: 1em;
+}
+#install dd blockquote {
+    margin-left: 1em;
+    margin-right: 3rem;
+}
+#install dd li {
+    margin-right: 2rem;
+}
+#install dd li blockquote {
+    margin-right: 0;
+}
+#terms p,
+#exchange p,
+#profile p {
+    margin-left: .6em;
+}
+
+#install dt h2 span {
+    font-weight: normal;
+    font-size: .8em;
+    opacity: .5;
+}
+#install .footnote {
+    margin-top: 1em;
+}
+#install dt>b {
+    color: var(--title-color);
+    margin-left: .5em;
+    font-size: 1.1rem;
+}
+/*  channel  */
+
+#channel h4 {
+    opacity: .9;
+    padding: 1rem 0 0 1rem;
+}
+#channel ul {
+    /* list-style-type: none;  */
+    list-style-position: inside;
+}
+#channel li, 
+#channel dt {
+    padding: .5rem 0 .5rem 0;
+}
+
+#channel {
+    margin-top: 0em;
+}
+#channel h1,
+#apikey h1 {
+    margin-bottom: 0;
+}
+#channel-post dl,
+#apikey dl {
+    margin-bottom: 1em;
+}
+#channel-post p,
+#apikey p {
+    padding-top: 1em;
+    padding-bottom: .3em;
+}
+#channel-post form h3 {
+    font-weight: normal;
+}
+
+#apikey form {
+    margin-top: 1em;
+    padding-top: 1em;
+    border-radius: 1em;
+}
+#apikey fieldset h3 {
+    font-size: 1.4em;
+    color: var(--text-color);
+}
+#apikey .form .success h3 input {
+
+    font-size: .7em;
+    line-height: 1.5em;
+    padding: .1em .4em .1em .4em;
+    width: 100%;
+   
+    border: 3px solid var(--link-color);
+    background-image: linear-gradient(to right, rgba(100,100,100,0), rgba(100,100,100,0),  rgba(100,100,100,0), rgba(100,100,100,0),rgb(65, 64, 64));
+
+    /*
+    background-image: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0),  rgba(0,0,0,0), rgba(0,0,0,0),rgba(0,0,0, 1));
+    overflow-x: scroll;
+    overflow-y: hidden;
+    font-size: .8em;
+    line-height: 2em;
+    padding: .2em;
+    border: 3px solid var(--link-color);
+    max-width: 35em;
+    */
+}
+
+#apikey .form .success h3 code {
+
+}
+#apikey .form .success h4 {
+    margin: 0;
+    padding: 0;
+    margin-top: .5em;
+    display: flex;
+    justify-content: space-around;
+}
+#apikey .form .success h4 button {
+    width:45%;
+    padding: .5em .7em .5em .65em;
+}
+
+/*  #exchange  */
+
+#exchange .cards {
+    display: flex;
+    justify-content: space-between;
+}
+#exchange .cards svg {
+    width: 64px;
+    height: 64px;
+}
+#exchange .header {
+    display: flex;
+    /* align-items: baseline; */
+    justify-content: space-between;
+    margin-bottom: 1em;
+}
+#exchange .header h1 {
+    padding-right: .5em;
+    margin-right: .1em;
+}
+#exchange .header .legend {
+    border-left: solid 1.5em var(--title-bkgnd);
+    padding: 0 .2em 0 .6em;
+    margin: 1em 0 .3em 0.1em;
+    /* flex-basis: 70%; */
+}
+#exchange .header .legend p {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+#exchange .header p span {
+    display: inline-block;
+    width: 1.4em;
+    text-align: right;
+}
+#exchange p b,
+#exchange dd h1 {
+    color: var(--header-site-bkgnd);
+}
+#exchange dd h1 {
+    font-size: 1.5rem;
+    text-align: center;
+}
+#exchange dd h1 span {
+    font-size: 1.4rem;
+    color: var(--header-site-bkgnd);
+    opacity: .8;
+}
+#exchange dl span,
+#exchange p span {
+    font-family: uqrate;
+}
+#exchange p span {
+    color: var(--header-site-bkgnd);
+    opacity: .6;
+}
+#exchange p a:hover *,
+#exchange p a:focus * {
+    color: var(--text-bkgnd);
+}
+
+#exchange dd {
+    line-height: 1.5em;
+}
+#exchange ol {
+    list-style-type: upper-roman;
+    list-style-position: outside;
+    margin: 0 0 0 2em;
+}
+#exchange ol li {
+    padding: .5em 2em 1em .6em;
+}
+#exchange dd p,
+#profile dd p {
+    padding-bottom: 1em;
+}
+
+/*  Add q Tokens : P2q Exchange */
+
+#exchange .form-container {
+    margin: auto;
+    margin-top: 2em;
+    margin-bottom: 3em;
+}
+#exchange .form-container span {
+    font-family: uqrate;
+    font-size: 0.8em;
+}
+#exchange .form-container h1 {
+    font-size: 1.7em;
+}
+#exchange form label[for="form-amount"] {
+    width: 16.5em;
+}
+#exchange .form-container button:disabled {
+    background: var(--form-disabled);
+    border-color: var(--form-disabled);
+    opacity: 1;
+}
+
+#account table {
+    width: 90%;
+    margin: .5em 0 1em .5em;
+}
+#account h2 span {
+    margin-right: .3em;
+}
+#account span.token {
+    color: var(--header-site-bkgnd);
+    opacity: .8;
+}
+#account tr {
+    line-height: 1.7em;
+}
+#account th {
+    font-size: 1.1em;
+    text-align: left;
+}
+#account td.key {
+    width: 10.5em;
+}
+#account td span {
+    padding-right: .5em;
+}
+#account td input {
+    font-family: inherit;
+    font-size: inherit;
+    width: 100%;
+    color: var(--body-color);
+    outline: none !important;
+    /* border: 1px solid transparent; */
+    border: 1px dotted var(--link-color);
+}
+#account td input:focus {
+    color: var(--body-color);
+    outline: none !important;
+    border: 1px solid var(--link-color);
+    box-shadow: 0 0 3px var(--link-color);
+}
+#account #tokens table {
+    width: 38%;
+}
+#account #tokens td.amount {
+    text-align: right;
+}
+#account #subscriptions table {
+    font-size: .9rem;
+}
+#account #subscriptions table tr {
+    line-height: 1.9rem;
+}
+#account #subscriptions table th,
+#account #subscriptions table td {
+    text-align: right;
+}
+#account #subscriptions table th.text-left,
+#account #subscriptions table td.text-left {
+    text-align: left;
+}
+/***************
+    @ #profile  
+***************/
+
+#profile dt.disabled a {
+    background: var(--form-disabled);
+}
+#profile #form-container,
+#profile form {
+    background: transparent;
+    margin: auto;
+    margin-top: 1em;
+}
+#profile #form-container {
+    margin-top: 2em;
+    margin-bottom: 6em;
+}
+
+
+/*  TypeShell: "1.app"  */
+#view[data-app] #channel {
+    margin-top: 3em;
+}
+
+#contact dd {
+    padding-left: 1em;
+}
+#contact li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#start #why {
+    font-size: 1.6em;
+    text-align: center;
+}
+#start #why img {
+    width: 70%;
+    margin-left: .5em;
+    margin-top: .8em;
+}
+#start #why .header h1 {
+    font-family: uqrate;
+    font-size: 4em;
+    margin-left: .2em;
+    margin-bottom: .3em;
+    color: #331;
+    text-shadow: 2px 2px 5px #998;
+}
+#start #why .header h1 span {
+    font-size: .3em;
+}
+#start #why blockquote {
+    margin-top: 0;
+}
+#start #why p b {
+    opacity: .8;
+}
+#start .header {
+    font-size: 1.4rem;
+    margin: auto;
+}
+
+#start #app h1 {
+    padding: 0;
+    color: var(--sponsub-color); 
+    /* 
+    color: #d7d8d3; 
+    color: var(--title-bkgnd); 
+    */
+    text-shadow: 2px 2px 5px #777;
+}
+#start h1 b {
+    font-size: 1em;
+    color: #990;
+    /*
+    color: var(--header-site-bkgnd);
+    color: #c6b305;
+    color: #990;
+    */
+    text-shadow: 2px 2px 5px #776;
+    opacity: 1;
+}
+#start h2 a {
+    padding: .3em 1em .3em 1em;
+}
+#start p {
+    color: var(--header-site-bkgnd);
+    padding: 0.5em 0em .5em 0em;
+    margin: .5em 0 0 1em;
+}
+
+#start p em {
+    font-weight: bold;
+    opacity: .8;
+}
+#start p strong {
+    font-weight: normal;
+    font-style: normal;
+    background: var(--app-strong-bkgnd);
+    /* filter: grayscale(70%); */
+    padding: .1em .3em .3em .3em;
+    /*
+    border-radius: 50%;
+    padding: 0 .5em .2em .5em;
+    color: var(--text-bkgnd);
+    background: var(--header-site-bkgnd);
+    opacity: .7;
+    */
+}
+
+#start #how p strong {
+    font-style: normal;
+}
+#start code {
+    font-size: 1.4rem;
+}
+/*  button  */
+
+#start h2.button {
+    display: block;
+    margin: 1.5em 0 2em 0;
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    align-self: center;
+    background: transparent;
+}
+
+#start #what h2 {
+    font-size: 1.3rem;
+    padding-left: .8em;
+    padding-right: .8em;
+    margin: .8em 0 1.5em 0;
+    color: var(--header-site-bkgnd);
+}
+#start #what h2.button {
+    font-size: 1.6rem;
+    margin: 1.5em 0 2em 0;
+}
+/*  start : what  */
+#start #what h3 {
+    font-size: 1.3rem;
+    margin: 0.5em 0 .5em 0;
+}
+#start #what p {
+    font-size: 1.2rem;
+}
+#start #what p em {
+    font-size: 1.4rem;
+    opacity: .8;
+}
+#start #what blockquote {
+    font-size: 1.3rem;
+    padding-top: .7em;
+    padding-bottom: 1em;
+    padding: 1.1em 0 1.4em 0;
+    margin: 1em 5em 1em 5em;
+
+}
+#start #what .big {
+    font-size: 1.5em;
+}
+#start #what dd {
+    margin: 2em 2em 0 2em;
+}
+#start #what .box {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    padding: 1.5rem;
+    margin-top: 1.6rem;
+    margin-bottom: 3rem;
+    background: var(--app-strong-bkgnd);
+}
+#start #what .box strong {
+    background: var(--body-bkgnd);
+}
+#start #what .box em {
+    font-size: inherit;
+}
+#start #what dd.center {
+    margin: 2.3em 0 0 0;
+}
+#start #what dd.center>p.big {
+    margin-bottom: 1em;
+}
+
+#start #how dd,
+#start #how dt h3 {
+    margin: 0;
+    padding: 0;
+    margin-left: 0.6em;
+}
+#start #how dd p {
+    padding: .5em 0 .5em 0;
+    margin: 0;
+}
+#start #how dd p {
+    font-size: 1.2em;
+}
+#start #how dd ul {
+    font-size: 1.2rem;
+    margin-left: 1em;
+    list-style-type: square;
+}
+#start #how dd li {
+    margin-left: 1em;
+}
+
+#start #app .legend {
+    opacity: .4;
+}

@@ -1,0 +1,53 @@
+header { 
+    background-color: transparent;
+}
+header ul {
+    list-style-type: none;
+}
+header li {
+    padding: 0;
+}
+header li a.active {
+    color: var(--menu-active-color);
+    background: var(--menu-active-bkgnd) !important;
+}
+header .menu li a {
+    display: block;
+    font-weight: bold;
+    padding: var(--padding);
+    color: var(--menu-link-color);
+}
+header .menu li a:hover,
+header .menu li a:focus {
+    color: var(--text-bkgnd);
+    background: var(--link-color);
+}
+header .menu li a:active {
+    opacity: .6;
+}
+
+/***  Add to Home Screen (a2hs)  ***/
+
+#a2hs {
+    /* height: 1.5em; */
+    position: absolute;
+    top: 33%;
+    z-index: 99;
+    width: 100%;
+    margin: auto;
+    padding: .5em 0 .5em 0;
+    font-size: 2em;
+    font-weight: bold;
+    font-style: italic;
+    color: var(--header-site-bkgnd);
+    background-color: var(--menu-link-color);
+}
+#a2hs:hover,
+#a2hs:focus {
+    color: var(--menu-link-color);
+    background-color: var(--header-site-bkgnd);
+    opacity: 0.85;
+}
+#a2hs:active {
+    opacity: .6;
+}

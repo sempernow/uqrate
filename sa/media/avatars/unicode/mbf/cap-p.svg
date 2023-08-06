@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+    data-id="def-cap-p" 
+    viewBox="0 -15.5 13 20">
+    <defs>
+        <style>
+            @font-face {
+                font-family: 'symbola-mbf';
+                font-weight: normal;
+                font-style: normal;
+                src: url('symbola-mbf.woff') format('woff');
+            }
+            .smbf {
+                font-family: symbola-mbf;
+                fill: #333;
+            }
+        </style> 
+    </defs>
+    <text class="smbf">&#x1d57b;</text>
+</svg>
+<!-- MATHEMATICAL BOLD FRAKTUR (MBF) CAPITAL P : 𝕻 -->

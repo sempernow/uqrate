@@ -1,0 +1,12 @@
+/* net */   
+
+#http.transient {
+    background: var(--aux-hover);
+    border-color: var(--aux-hover);
+}
+
+#http.net-fail {
+    color: var(--fail-color) !important;
+    background: var(--fail-bkgnd) !important;
+    border-color: var(--fail-color) !important;
+}

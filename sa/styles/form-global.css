@@ -1,0 +1,276 @@
+/*
+    structure mods for ill-fitting template 
+        p @ 28ch
+
+:root {
+    --width-aside: 0; 
+}
+*/
+
+#form-container,
+.form-container {
+    text-align: center;
+    background: var(--text-bkgnd); 
+    font-family: sans-serif;
+    padding: 1em 0 1em 0;
+    margin: auto;
+    margin-top: 5em; 
+    margin-bottom: 1.5em;
+    width: 95%; /* was 30em : bumped up against the border if narrow */
+    border-radius: .5em;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+#form-container {
+    margin-top: 5em; /*  5em if sans page menu ???; 2em otherwise  */
+}
+#form-container h3 {
+    margin-top: 2em;
+}
+#form-container h3 a {
+    opacity: .3;
+}
+#form-container h3 a:hover{
+    opacity: 1;
+}
+#form-container h3 a:active{
+    opacity: .7;
+}
+
+/* @ signup and pw-reset */
+#form-container label[for=form-verification-code] {
+    width: 8.4em;
+}
+#form-container label[for=form-pass] {
+    width: 4.7em;
+}
+#form-container label[for=form-pass-confirm] {
+    width: 4.1em;
+}
+
+
+form {
+    background: var(--text-bkgnd); /* required for some, yet want transparent @ report */
+    font-family: sans-serif;
+    padding: 1em;
+    padding-top: 0;
+    width: 90%;
+    margin: auto;
+}
+
+form>*, form fieldset>* {
+    font-size: 1.2rem;
+}
+
+form fieldset,
+form button,
+form input,
+form label,
+form textarea {
+    /* 
+    font-size: inherit;
+    */
+    font-family: inherit; 
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+form input,
+form textarea,
+form button {
+    background: transparent;
+}
+
+form input[type="radio"]:checked+* {
+    color: #f06;
+}
+
+form label {
+    position: relative;
+    top: .50em;
+    left: .7em;
+    width: auto; /* was 5em */
+    height: 1.2em;
+    padding: 0 .2em 0 .2em;
+    border-radius: .5em;
+    color: var(--form-border-color);
+    background: var(--text-bkgnd);
+}
+form label:hover,
+form label:focus {
+    color: var(--link-color);
+}
+
+form input,
+form textarea,
+form button {
+    line-height: 1.5em;
+    padding: .5em;
+    border: .2em solid var(--form-border-color);
+    border-radius: .5em;
+}
+form textarea {
+    resize: vertical;
+    overflow-y: hidden;
+    min-height: 4rem;
+    line-height: 1.25rem;
+    font-family: sans-serif;
+    font-size: 1.1rem;
+}
+form textarea[name="title"] {
+    min-height: 1rem;
+    height: 3rem;
+}
+
+
+form button {
+    margin-top: .5em;
+    border: .2em solid var(--form-border-color);
+    border-radius: .5em;
+}
+
+form input:not([type='submit']):focus,
+form textarea:focus {
+    color: var(--body-color);
+    border-color: var(--link-color);
+}
+
+
+/* button */
+
+form input[type=submit],
+form button[type=submit],
+form button[type=reset],
+form button[type=button] {
+    font-weight: bold;
+    letter-spacing: 0.3em;
+    color: var(--form-bkgnd);
+    background: var(--form-border-color);
+}
+form input[type=submit]:hover,
+form button[type=submit]:hover,
+form button[type=reset]:hover {
+    /* letter-spacing: 0.8em; */
+    background: var(--link-color);
+    border-color: var(--link-color);
+}
+form input[type=submit]:focus,
+form button[type=submit]:focus,
+form button[type=reset]:focus {
+    opacity: 0.8;
+}
+
+form input[type=submit] span,
+form button[type=submit] span {
+    font-family: uqrate;
+}
+
+/* .invalid, .disabled  */
+
+form input.invalid,
+form button.invalid,
+form label.invalid,
+form textarea.invalid {
+    color: var(--form-invalid) !important;
+}
+form label.invalid {
+    font-weight: bold;
+}
+form input[type=submit].disabled,
+form input[type=submit].disabled:hover,
+form button:disabled,
+form button:disabled:hover {
+    background: var(--form-disabled) !important;
+    border-color: var(--form-disabled) !important;
+}
+
+/* ??? */
+form h1.report {
+    font-size: 2rem;
+    font-style: italic;
+    text-align :center;
+    margin: auto;
+}
+
+/******************************************************
+ * Upon FORM submittal, or oauth-provider click, 
+ * the MAIN node is purged of all content. 
+ * Then a child node is inserted. 
+ * It contains an SVG representing the event. 
+ * Class(es) are dynamically added for spinner FX.
+ *****************************************************/
+ main span.selected svg {
+    width: calc(1.2 * var(--oauth-link-size));
+    height: calc(1.2 * var(--oauth-link-size));
+    margin: auto; /* center */
+    animation-name: heartBeat;
+    animation-duration: 0.5s;
+    fill: var(--link-color);
+    opacity: .8;
+}
+main span.selected {
+    /* overflow: hidden; */
+}
+main .spinner {
+    margin: auto; /* center*/
+    /* overflow:hidden; */
+    margin-top: 7em;
+    margin-bottom: 3em;
+}
+main .spin {
+    animation: rotateCW 0.1s linear;
+    animation-delay: .2s;
+    animation-iteration-count: infinite;
+    opacity: .8;
+}
+
+form h1.report {
+    font-style: italic;
+    margin-top: 3em;
+}
+
+/*  #channel-post form : Add/Edit a channel  */
+
+#channel-post form h3 {
+    margin-top: 1em;
+}
+#channel-post form h3 span {
+    opacity: .5;
+}
+#channel-post form label[for=form-channel-title] {
+    width: 2.7em;
+}
+#channel-post form label[for=form-channel-slug] {
+    width: 2.7em;
+}
+#channel-post form label[for=form-channel-about] {
+    width: 3.5em;
+}
+#channel-post form label[for=form-channel-rate] {
+    width: 6.5em;
+}
+#channel-post form label[for=form-channel-host] {
+    width: 4.7em;
+}
+#channel-post form .privacy label,
+#apikey form .channel label {
+    width: 80%;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 0.7em;
+}
+#channel-post form input[type="radio"]:checked+*,
+#apikey form input[type="radio"]:checked+* {
+    font-weight: bold;
+    color: var(--body-color);
+}
+#channel-post form input[type=radio],
+#apikey form input[type="radio"] {
+    filter: hue-rotate(205deg);
+    width: 1.3em;
+    height: 1.3em;
+    display: inline;
+}

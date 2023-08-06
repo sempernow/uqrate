@@ -1,0 +1,569 @@
+/* messages */
+#msg-list {
+    box-sizing: border-box;
+
+    width: auto;
+    /* REQUIRED, else affects structurally; width of parent flexbox */
+    /* width:var(--width-main); */
+    /* TODO: +Avatar area */
+    
+    /* 
+    Prevent box width from growing 
+    on "Expand All" when content is heavily nested.
+    FIX max-width ...
+    max-width: var(--width-main); 
+    */
+    max-width: var(--width-main);
+    
+    /* font-family: sans-serif; */ /* overrides our system-font scheme */
+
+    --thread-indent: .6em;
+    --thread-gap: .6em;
+    --thread-margin-right: .2em;
+
+    --msg-pad: .2em;
+
+    padding-left: .2em;
+ }
+
+/* @ thread */
+#msg-list .thread {
+    /* Clips all elements of heavily nested replies */
+    overflow-x: hidden;
+
+    margin-top: .5em;
+    margin-bottom: .3em;
+    margin-left: var(--thread-indent);
+    margin-right: var(--thread-margin-right);
+
+    border: 1px solid transparent;
+    border-radius: 1em;
+    box-shadow: 0 .15em .2em rgba(0, 0, 0, 0.2);
+    background: var(--text-bkgnd);
+
+}
+
+#msg-list .thread {
+    animation: onLoad 0.6s ease-in-out;
+    /* animation: onLoad .2s cubic-bezier(0.1, -0.6, 0.2, 0); */
+}
+
+@keyframes onLoad {
+    from {
+        max-height: 0;
+        overflow: hidden;
+    }
+    to {
+        max-height: 9999px;
+        overflow: hidden;
+    }
+    /***********************************************************************************
+    ... Set max-height property (end state) to a value greater than that of its target. 
+    ***********************************************************************************/
+} 
+
+/* @ thread root */
+#msg-list > .thread {
+    margin-left: 0;
+    margin-right: var(--thread-margin-right);
+    margin-bottom: var(--thread-gap);
+
+    border: 1px solid transparent;
+    border-radius: 1em;
+    /* box-shadow: 0 .15em .4em rgba(0, 0, 0, 0.2); */
+    box-shadow: 0 .15em .2em rgba(0, 0, 0, 0.2);
+    background: var(--text-bkgnd);
+}
+
+#msg-list .thread.new {
+    /* box-shadow: 0 .15em .4em rgba(0, 0, 0, 0.2); */
+    box-shadow: 0 .15em .2em var(--msg-new);
+}
+
+/* @ thread :: JS Toggler :: `toggleThread()` */
+#msg-list .thread.reply[data-self-collapsed=true] {
+    /* No left/right margin else affects width of parent (flexbox) */
+    display: none; 
+}
+
+/* @ thread root */ 
+#msg-list > .thread.reply[data-self-collapsed=true] {
+    /* 
+        Edge case @ pub-type chn is owner reply to msg at other chn.
+        Renders at owner's pub chn as new (root) thread, 
+        so display regardless of toggle state.
+    */
+    display: block;
+}
+
+#msg-list .thread:hover {
+    /* offset-x | offset-y | blur-radius | spread-radius | color */
+    box-shadow: 0 .15em .4em .1em rgba(0, 0, 0, 0.2);
+}
+
+#msg-list .thread.new:hover {
+    /* box-shadow: 0 .15em .4em rgba(0, 0, 0, 0.2); */
+    box-shadow: 0 .15em .2em .1em var(--msg-new);
+}
+
+#msg-list .thread:focus {
+    /* offset-x | offset-y | blur-radius | spread-radius | color */
+    box-shadow: 0 .15em .4em .1em rgba(0, 0, 0, 0.2);
+}
+
+#msg-list .thread.new:focus {
+    /* box-shadow: 0 .15em .4em rgba(0, 0, 0, 0.2); */
+    box-shadow: 0 .15em .2em .1em var(--msg-new);
+}
+#msg-list .msg {
+    display: flex;
+    padding: var(--msg-pad);
+    padding-right: .2em;
+    padding-bottom: .3em;
+    /* moved from .title h2 */
+    margin: 0.2em .2em 0.1em .2em;
+
+
+}
+#msg-list .msg[data-punished=true] {
+    opacity: .2;
+}
+
+/*  graphics  */
+
+#msg-list .msg .graphics {
+    flex: 0;
+}
+
+/*  avatar  */
+
+#msg-list .msg .graphics img,
+#msg-list .msg .graphics svg {
+    width: var(--msg-avatar-size);
+    height: var(--msg-avatar-size);
+    border-radius: 50%;
+    margin: 0 .5em 0 0;
+    background: var(--title-bkgnd);
+}
+
+/*  badges  */
+
+#msg-list .msg .graphics img,
+#msg-list .msg .graphics .badges span {
+    filter: grayscale(85%);
+}
+#msg-list .msg .graphics:hover,
+#msg-list .msg .graphics:focus,
+#msg-list .msg .graphics img:hover,
+#msg-list .msg .graphics img:focus,
+#msg-list .msg .graphics .badges span:hover,
+#msg-list .msg .graphics .badges span:focus {
+    filter: grayscale(0%);
+    color: var(--info-bkgnd);
+}
+
+/*
+#msg-list .msg .graphics {
+    filter: grayscale(85%);
+}
+
+#msg-list .msg .graphics:hover,
+#msg-list .msg .graphics:focus {
+    filter: grayscale(0%);
+    color: var(--info-bkgnd);
+}
+*/
+
+/*  main  */
+
+#msg-list .msg .main {
+    flex: 1;
+}
+
+/*  overflow : FAILING  */
+
+#msg-list .body * {
+    overflow: hidden;
+}
+#article .body * {
+    overflow: hidden;
+    max-width: var(--width-main);
+}
+
+/*  heading  */
+
+/* title @ long-form message */
+#article .msg h2,
+#msg-list .msg .main h2 {
+    color: var(--title-color);
+    background: var(--title-bkgnd);
+    padding: 0.2em 0.3em 0.2em 0.3em;
+    /*
+    Moved to .msg
+    margin: 0.2em .2em 0.1em .2em;
+    */
+
+    border-radius: .07em;
+    /*
+    border-radius: .5em;
+    border-top-right-radius: .5em;
+    border-bottom-right-radius: .5em;
+    */
+}
+/* author display /handle */
+#article .msg h2,
+#msg-list .msg .main h3 {
+    display: flex;
+    justify-content: space-between;
+}
+
+#msg-list .msg .main h3 {
+    line-height: calc( 1.3 * var(--msg-option-svg-size) );
+    height: calc( 1.3 * var(--msg-option-svg-size) );
+}
+
+#article .msg h2 {
+    align-items: baseline;
+    margin: 0;
+}
+
+#msg-list .msg h2,
+#article .msg h2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--title-bkgnd);
+    color: var(--header-site-bkgnd);
+    padding: 0.2em 0.3em 0.2em 0.3em;
+    margin: 0.2em 0 0.1em 0;
+}
+
+#msg-list .msg h2 span,
+#article .msg h2 span {
+    flex-shrink: 0;
+}
+
+#article .msg h2 {
+    margin-top: 0;
+}
+
+#msg-list .msg a h2,
+#article .msg a h2 {
+    color: var(--link-color) !important;
+}
+#msg-list .msg a h2:hover,
+#article .msg a h2:hover {
+    color: var(--title-bkgnd) !important;
+    background: var(--header-site-bkgnd);
+}
+
+#article .msg .date,
+#msg-list .msg .main h3 .date {
+    font-size: 1rem;
+    font-weight: normal;
+    opacity: .5;
+    padding-right: .35em;
+}
+#article .msg .date {
+    padding-left: .35em;
+}
+/*  author handle  */
+#msg-list .msg .main h3 .author {
+    opacity: .6;
+}
+#msg-list .msg .main h3 .author a>span {
+    padding-left: .5em;
+}
+
+/*  Reply to: handle  */
+#msg-list .msg .main h3 .author div {
+    font-size: 1rem;
+    font-weight: normal;
+    opacity:.55;
+}
+
+
+/*  body  */
+#msg-list .msg .main .body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: .1em;
+}
+
+#article .msg .body {
+    padding: .5em;
+    margin-bottom: .5em;
+}
+
+#article .msg .body p {
+    padding: .3em 0 .3em 0;
+    line-height: 1.5em;
+}
+#article .msg .body blockquote {
+    padding: 0 .4em 0 .5em;
+    margin: .2em 1em .2em 0;
+    border-left: solid 20px var(--title-bkgnd);
+    border-bottom: solid 2px var(--title-bkgnd);
+}
+
+#article .msg .body-footer {
+    padding: .4em 0 0 0;
+    opacity: .8;
+}
+#article .msg .body-footer a {
+    display: block;
+    padding-bottom: .1em;
+}
+
+/*  sponsor  */
+
+#msg-list .msg .main .body .sponsor {
+    /* flex-basis else affected by #app p width */
+    flex-basis: 13%; 
+    font-size: 1.3em;
+    font-weight: bold;
+    text-align: center;
+    color: var(--sponsor-color);
+    padding: .2em .4em .2em .4em;
+    margin-left: .2em;
+    background: var(--sponsor-bkgnd);
+    border-radius: 50%;
+    border-color: var(--sponsor-bkgnd);
+    /* border-style: outset; */
+    box-shadow: 0 .15em .2em .1em rgba(0, 0, 0, 0.1);
+}
+#msg-list .msg .main .body .sponsor span {
+    font-family: uqrate;
+    font-weight: normal;
+    font-size: .85em;
+    padding-left: .25em;
+    /* color & opacity else affected by #app p span */
+    color: var(--sponsor-color);
+    opacity: 1; 
+}
+
+/*  options  */
+
+#msg-list .options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: .6em;
+    /*
+    line-height: 32px;
+    line-height: calc( 1.3 * var(--msg-option-svg-size) );
+    */
+    line-height: calc( 1.3 * var(--msg-option-svg-size) );
+    height: calc( 1.3 * var(--msg-option-svg-size) );
+}
+#msg-list .options svg {
+    display: block;
+    position: relative;
+    width: var(--msg-option-svg-size);
+    height: var(--msg-option-svg-size);
+    text-align: center;
+    fill: var(--msg-svg-color);
+    color: var(--msg-svg-color);
+    border-radius: 50%;
+}
+
+/*  options : .active (@ form, etal)  */
+
+#msg-list .options .active {
+    fill: var(--link-color);
+}
+
+/*  actions : button groups  */
+
+#msg-list .actions {
+    display: flex; 
+    justify-content: space-between;
+    flex-basis: 80%;
+}
+#msg-list .actions .yea,
+#msg-list .actions .non,
+#msg-list .actions .pub {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-basis: 30%;
+    line-height: calc( 1.3 * var(--msg-option-svg-size) );
+    height: calc( 1.3 * var(--msg-option-svg-size) );
+
+}
+#msg-list .actions .yea {
+    flex-basis: 30%;
+    flex-grow: 3;
+    padding-left: .5em;
+}
+#msg-list .actions .yea {
+    /*
+    justify-content: start;
+    */
+}
+#msg-list .actions .yea .title[data-title=qToken] {
+    margin-right: 1em;
+}
+
+/*  button  */
+
+#msg-list .actions .title {
+    display: flex; /* vertically align button with adjacent count (span) */
+    align-items: center;
+}
+#msg-list .actions .hide {
+    display: none;
+}
+#msg-list .actions .title span {
+    margin-left: .15em;
+    opacity: .5;
+}
+#msg-list .actions .title {
+    flex-shrink: 0;
+}
+/************************************************************
+    flex killed this affect that requires absolute.
+************************************************************/
+/*
+#msg-list .options .title[data-title]::after {
+    content: attr(data-title);
+    font-size: .7em;
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: .2s;
+    transition-delay: .8s;
+    background-color: var(--msg-title-bkgnd);
+    color: var(--text-bkgnd);
+    padding: .3em .8em .4em .8em;
+    border-radius: 50%;
+}
+*/
+/* failed attempt @ position:absolute (conflicts as flex element) */
+/*
+#msg-list .options .title[data-title]::after {
+    content: attr(data-title);
+    font-size: .7em;
+    position: absolute; 
+    left: -20%;
+    top: -110%;
+    margin-left: .4em;
+    margin-top: -1em;
+}
+*/
+/* failed attempt @ position:relative (interferes with layout) */
+/*
+#msg-list .options .title[data-title]::after {
+    padding: .3em .8em .4em .8em;
+    margin-left: .4em;
+    margin-top: -1em;
+}
+*/
+/*
+#msg-list .options .title[data-title]:hover::after {
+    opacity: 1;
+}
+*/
+
+/*  toggler (button)  */
+
+#msg-list .options .toggle {
+    display: flex; 
+}
+#msg-list .options .toggle .title[data-title],
+#msg-list .options .toggle svg {
+    margin-right: 0em;
+}
+/*
+#msg-list .options .toggle .title[data-title]::after {
+    left: -135%;
+}
+*/
+#msg-list .options .toggle .count-replies {
+    padding-right: .4em;
+    opacity: .3;
+}
+
+/*  hover FX  */
+
+#msg-list .options .toggle:hover .count-replies {
+    opacity: 1;
+    color: var(--link-color);
+}
+
+#msg-list .options svg:hover {
+    fill: var(--text-bkgnd);
+    color: var(--text-bkgnd);
+    background: var(--link-color) !important;
+}
+
+#msg-list .options .warn svg:hover {
+    fill: var(--fail-color);
+    color: var(--fail-color);
+    background-color: var(--fail-bkgnd) !important;
+}
+
+#msg-list .msg[data-punished=true] .actions svg:hover {
+    fill: var(--msg-svg-color);
+    color: var(--msg-svg-color);
+    background-color: transparent !important;
+}
+#msg-list .msg[data-punished=true]:hover {
+    opacity: .5;
+}
+
+#msg-list .options svg:active {
+    opacity: .7;
+}
+
+/*  Page : Thread  */
+
+/*
+#msg-list.single-thread>.thread,
+#msg-list.single-thread>.thread:hover,
+*/
+/****************************************************
+    If at single-thread view, then we hide 
+    root message (see JS) and remove indentation.
+    (Its action buttons remain visible.)
+****************************************************/
+#msg-zero {
+    background: transparent;
+    display: none;
+}
+
+#msg-zero .graphics,
+#msg-zero.msg .main>.msg-title,
+#msg-zero.msg .main>h3,
+#msg-zero.msg .main>.body,
+#msg-zero.msg .main>.options>.toggle {
+    display: none;
+}
+
+/* Action buttons @ root message of single-thread */
+#msg-zero.msg .options {
+    font-size: 2rem;
+    margin-left: .3em;
+    margin-bottom: .5em;
+}
+#msg-zero.msg .options svg {
+    fill: var(--link-color);
+}
+#msg-zero.msg .options svg:focus,
+#msg-zero.msg .options svg:hover {
+    fill: var(--text-bkgnd);
+}
+
+#msg-list .single-thread,
+#msg-list .single-thread:hover {
+    margin-top: .5em;
+    padding-top: 0;
+    background: transparent;
+}
+#msg-list.single-thread>.thread>.thread,
+#msg-list .single-thread>.thread {
+    margin-left: .1em;
+
+}
+
+

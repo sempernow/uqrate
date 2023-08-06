@@ -1,0 +1,44 @@
+#http-resp {
+    /* padding-top: calc(var(--header-site-height) + var(--header-page-height) + 1em); */
+    padding-top: 2em;
+    font-size: .8rem;
+    background: var(--http-bkgnd-drk);
+}
+#http-resp div {
+    margin: auto;
+    width: auto;
+    font-family: sans-serif;
+}
+
+#http-resp div>* {
+    text-align: center;
+    margin: 0 10% 0 10%;
+}
+
+#http-resp h1 {
+    font-size: 8rem;
+    font-weight: 900;
+    color: var(--http-resp);
+    opacity: .1;
+}
+
+#http-resp h2 {
+    position: relative;
+    font-size: 3rem;
+    color: var(--http-resp);
+    opacity: .9;
+}
+
+#http-resp h2 em {
+    font-size: .8em;
+    color: var(--http-resp);
+    opacity: .6;
+}
+#http-resp h3 {
+    margin-top: 0em;
+    margin-bottom: 1.2em;
+    font-family: monospace;
+    font-size: 3rem;
+    color: var(--http-resp);
+    opacity: .2;
+}

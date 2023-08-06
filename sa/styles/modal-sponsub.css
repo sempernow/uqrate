@@ -1,0 +1,280 @@
+/**********************
+    @ #modal-sponsub
+***********************/
+#modal-sponsub {
+    position: fixed;
+    z-index: 3;
+    top: 20%; /*  Overridden @ JS : See txn.js : openModal(ev)  */
+    left: auto;
+    width: auto;
+    height: auto;
+    background: transparent; 
+}
+#modal-sponsub .wrapper {
+    position: relative;
+    overflow: hidden;
+    /* color: var(--header-site-bkgnd); */
+    color: var(--sponsub-color);
+    background: var(--form-bkgnd);
+    margin: auto;
+    padding: 2em;
+    border-radius: .5em;
+    width: auto;
+    height: auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+    -webkit-animation-name: animate-modal-sponsub;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animate-modal-sponsub;
+    animation-duration: 0.4s;
+}
+#modal-sponsub .abort {
+    padding: 3em 1.6em .8em 1em; 
+}
+
+/* .header */
+
+#modal-sponsub .header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: .8em;
+}
+
+#modal-sponsub .header h1 {
+    font-size: 1.6em;
+    line-height: 1em;
+    margin-top: 0;
+    margin-bottom: .5em;
+    margin-right: 1em;
+}
+/* Close button */
+#modal-sponsub .header svg {
+    width: 2em;
+    height: 2em;
+    padding: .2em;
+    margin-right: -.3em;
+    margin-top: -.3em
+}
+#modal-sponsub .header .close {
+    fill: var(--link-color);
+}
+#modal-sponsub .header .close:hover,
+#modal-sponsub .header .close:focus {
+    fill: var(--text-bkgnd);
+    background-color: var(--link-color);
+    border-radius: 50%;
+    text-decoration: none;
+    cursor: pointer;
+}
+#modal-sponsub .header .close:active {
+    opacity: .5;
+}
+
+/* .main */
+
+#modal-sponsub .main {
+    margin-left: .3em;
+    margin-top: 1.5em;
+}
+
+#modal-sponsub .invalid {
+    color: var(--form-invalid);
+}
+
+#modal-sponsub form {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    margin-top: 0.8em;
+}
+
+/*  
+    Form button FX : Inexplicably required here too. 
+    Identical to that @ form-global.css 
+*/
+#modal-sponsub form button:hover {
+    background: var(--link-color);
+    border-color: var(--link-color);
+}
+#modal-sponsub form button:focus {
+    opacity: .8;
+}
+
+/* .fund-source */
+
+#modal-sponsub .fund-source {
+    margin: 2em 0 0 0;
+}
+#modal-sponsub .fund-source label {
+    display: flex;
+    justify-content: space-between;
+}
+#modal-sponsub .fund-source label span {
+    font-weight: normal;
+    margin: 0 0 0 .65em;
+    padding: 0;
+}
+#modal-sponsub .fund-source span>span {
+    font-family: uqrate;
+}
+
+/* label */
+
+#modal-sponsub label>* {
+    font-weight: bold;
+    font-size: 1.2em;
+    padding: .6em .6em .6em .4em;
+    margin: .2em;
+    margin-right: 1em;
+}
+#modal-sponsub .amount label>* {
+    vertical-align: bottom;
+    background: var(--sponsub-amount-bkgnd);
+    border-radius: .4em;
+}
+/* Hide the native radio/checkbox button */
+#modal-sponsub label > input[type="radio"],
+#modal-sponsub label > input[type="checkbox"] {
+    display: none;
+}
+/* Create custom radio button */
+#modal-sponsub label > input[type="radio"] + *::before {
+    content: "";
+    display: inline-block;
+    vertical-align: bottom;
+    width: .8em;
+    height: .8em;
+    margin-right: .4em;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: .13em;
+    border-color: var(--form-radio-color);
+}
+/* Add checked FX to custom radio button */
+#modal-sponsub label > input[type="radio"]:checked + *::before {
+    background: radial-gradient(closest-side, var(--aux-transient), var(--form-radio-color));
+    border-color: var(--form-radio-color);
+    border-radius: 50%;
+}
+
+/* Create custom checkbox button */
+#modal-sponsub label > input[type="checkbox"] + *::before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: .7em;
+    height: .7em;
+    margin-right: .4em;
+    border-style: solid;
+    border-width: .13em;
+    border-color: var(--form-radio-color);
+}
+/* Add checked FX to custom radio button */
+#modal-sponsub label > input[type="checkbox"]:checked + *::before {
+    background: radial-gradient(closest-side, var(--aux-transient), var(--form-radio-color));
+    border-color: var(--form-radio-color);
+}
+/* Apply FX to the radio-button label*/
+#modal-sponsub label > input[type="radio"]:checked + * {
+    /* color: silver; */
+}
+
+/* .other */
+
+#modal-sponsub .amount .other {
+    display: inline;
+}
+#modal-sponsub .amount .other label {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 0;
+    margin-right: .2em;
+}
+#modal-sponsub .amount .other input {
+    font-family: inherit;
+    font-size: 1.2em;
+    width: 2.7em;
+    text-align: right;
+    padding-right: .25em;
+    border: 1px solid var(--link-color);
+    background: var(--text-bkgnd);
+}
+#modal-sponsub .amount .other input:focus {
+    outline: none !important;
+    border: 1px solid var(--link-color);
+    box-shadow: 0 0 3px var(--link-color);
+}
+
+/* .action */
+
+#modal-sponsub .action {
+    display: flex;
+    justify-content: space-between;
+    margin-left: -.1em;
+    padding: 1em 0 0 0;
+    width: 14em;
+    font-size: 1.3em;
+}
+#modal-sponsub .action>span {
+    font-weight: bold;
+}
+#modal-sponsub .action span {
+    opacity: .6;
+}
+#modal-sponsub .action label span {
+    opacity: 1;
+    font-size: 1em;
+}
+#modal-sponsub .action label>* {
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 0;
+}
+
+
+/* keyframes */
+
+@-webkit-keyframes animate-modal-sponsub {
+    from {
+        top: -400px;
+        opacity: 0
+    }
+
+    to {
+        top: auto;
+        opacity: 1
+    }
+} 
+
+@keyframes animate-modal-sponsub {
+    from {
+        top: -400px;
+        opacity: 0
+    }
+
+    to {
+        top: auto;
+        opacity: 1
+    }
+}
+
+/*  modal overlay : post-submit message  */
+
+.modal-overlay {
+    font-size: 2em; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-top: 30%;
+    text-align: center;
+    margin: auto;
+    z-index: 99;
+    width: 100%;
+    height: 100%;
+    background: var(--form-bkgnd);
+}
+#modal-sponsor .spin {
+    animation: rotateCW 0.1s linear;
+    animation-delay: .2s;
+    animation-iteration-count: infinite;
+}

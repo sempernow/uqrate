@@ -1,0 +1,10 @@
+
+main section {
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+main button {font-size: 1.4em; padding: .2em;margin: .2em; border: solid var(--header-site-bkgnd);}
+main button:hover {color: #fff; background: var(--header-site-bkgnd);}
+main button:active {opacity: .8; color: #999;}

@@ -1,0 +1,11 @@
+@media only screen {
+    :root {
+        font-size: 100%;
+        font-size: 1.4vmax;
+    }
+}
+@media only screen and (max-width : 88ch) {
+    :root {
+        font-size: 80%;
+    }
+}

@@ -1,0 +1,82 @@
+
+#guard-form {
+    font-size: 1.5em;
+    text-align: center;
+    width: auto;
+    margin: auto;
+    margin-top: 3em;
+}
+#guard-form h2 {
+    display: block;
+    background: none;
+    text-align: center;
+    width: auto;
+}
+#form-container .flex-names {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+#form-container div.names {
+    padding: 1em .2em 0 .2em;
+    margin-top: 0em;
+    margin-bottom: .3em;
+}
+#form-container div.names img,
+#form-container svg {
+    width: 64px;
+    height: 64px;
+}
+
+#form-container div.inform {
+    line-height: 1em;
+    font-style: italic;
+    font-weight: bold;
+    color: var(--form-invalid); 
+}
+
+#form-container h1 {
+    font-size: 2em;
+    margin-bottom: 1em;
+}
+#form-container h1 span {
+    font-size: 0.85em;
+    font-family: uqrate;
+}
+
+#form-container label[for=form-amount] {
+    width: 7.2em;
+}
+#form-container label[for=form-cardnumber] {
+    width: 6.8em;
+}
+#form-container label[for=form-expiry] {
+    width: 3.5em;
+}
+#form-container label[for=form-cardcode] {
+    width: 7em;
+}
+#form-container label[for=form-cardcode] span {
+    font-size: 1.2em;
+    line-height: 1.1em;
+    vertical-align:top;
+}
+/* instruct on hover|active */
+#form-container label[for=form-cardcode] span:hover,
+#form-container label[for=form-cardcode] span:active {
+    color: var(--form-invalid);
+}
+#form-container label[for=form-cardcode] span[data-instruct]:hover::after,
+#form-container label[for=form-cardcode] span[data-instruct]:active::after {
+    content: attr(data-instruct);
+    position: absolute;
+    top: 0.8em;
+    width: 14.6em;
+    font-size: 0.77em;
+    text-align: center;
+    color: var(--form-invalid);
+}
+#form-container label[for=form-zipcode] {
+    width: 4.8em;
+}

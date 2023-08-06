@@ -1,0 +1,37 @@
+footer { 
+    background-color: transparent;
+    background-color: var(--header-site-bkgnd);
+}
+footer a {
+    padding: 1em;
+    opacity: .4;
+}
+footer a:hover,
+footer a:focus {
+    opacity: 1;
+}
+footer a:active,
+footer li a.active {
+    color: var(--menu-active-color);
+    background: var(--menu-active-bkgnd) !important;
+}
+footer .menu li a {
+    display: block;
+    font-weight: bold;
+    padding: var(--padding);
+    color: var(--menu-link-color);
+}
+footer .menu li a:hover,
+footer .menu li a:focus {
+    color: var(--text-bkgnd);
+    background: var(--link-color);
+}
+
+footer h4 {
+    font-weight: 400;
+    opacity: 1;
+    color: var(--footer-color);
+    margin: 1em 0 1em 0;
+    text-align: center;
+}
+

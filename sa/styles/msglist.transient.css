@@ -1,0 +1,28 @@
+
+/******************************************************************
+ DEPRICATED 
+ 
+ threadTransient animation : DISABLED @ msglist.css @ .thread
+*******************************************************************/
+#msg-list .thread {
+    /* acceleration hack */
+    height: auto;
+    opacity: 1; 
+}
+#msg-list .thread,
+#msg-list .thread .options svg {
+    animation: threadTransient var(--net-transient-time) ease-in-out;
+}
+/* 
+background:var(--text-bkgnd); 
+background: var(--aux-transient);
+*/
+@keyframes threadTransient {
+    0%,
+    100% {
+        background: transparent;
+    }
+    3% {
+        background: var(--msg-transient);
+    }
+}

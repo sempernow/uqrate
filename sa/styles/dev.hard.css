@@ -1,0 +1,117 @@
+/* ===  dev only  == */
+
+:root {
+    --header-border: 1px dashed blue;
+    --main-border: 1px dashed green;
+    --footer-border: 1px dashed red;
+
+    /* --pad: 3em 2em 1em 2em; */
+}
+
+header .site>a,
+header .page>a,
+main>a,
+aside>a,
+footer>a {
+    display: block;
+}
+
+header h1:first-child::before,
+main h2:first-child::before,
+footer h3:first-child::before {
+    content: "§ ";
+    /* &#xa7; */
+}
+
+svg {
+    border: 1px dotted blue;
+}
+
+p::before {
+    content: "¶ ";
+    /* &#xb6; */
+}
+
+li::before {
+    /* content: "ł "; */
+    /* &#x0142; */
+}
+
+div::before {
+    content: "đ ";
+    /* &#x111; */
+}
+
+dl::before {
+    content: "Đ ";
+    /* &#x110; */
+}
+
+blockquote::before {
+    content: "𝔹 ";
+    /* &#x1d539; */
+}
+
+h1::before,
+h2::before,
+h3::before,
+h4::before,
+h5::before {
+    content: "ħ ";
+    /* &#x0127; */
+
+}
+
+article::before {
+    content: "å ";
+    /* &#xe5; */
+}
+
+article {
+    border: 1px solid green;
+}
+
+h1,
+h2,
+h3,
+h4,
+div,
+p,
+pre,
+ul,
+li,
+dl,
+dt,
+dd,
+blockquote,
+main,
+header {
+    border: 1px dotted rgb(57, 230, 129);
+}
+
+
+header {
+    border: var(--header-border);
+    background-color: #fd9839;
+}
+header .site {
+    border: var(--header-border);
+    background-color: #455521
+}
+main {
+    background-color: #61edff;
+    border: var(--main-border);
+}
+
+aside.left {
+    background-color: #afc896;
+}
+
+aside.right {
+    background-color: #939baa;
+}
+
+footer {
+    background-color: #e2f788;
+    border: var(--footer-border);
+}

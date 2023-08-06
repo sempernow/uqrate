@@ -1,0 +1,18 @@
+{
+	"lang": "en",
+	"dir": "ltr",
+	"name": "uqrate.org",
+	"short_name": "uqrate.org",
+	"description": "Join the world's first member-curated, member-sponsored transactional society.",
+	"scope": "/",
+	"start_url": "/",
+	"display": "fullscreen",
+	"orientation": "portrait",
+	"theme_color": "#999900",
+	"background_color": "#333300",
+	"icons": [{
+		"src": "sa/media/logo/favicon.svg",
+		"sizes": "1024x1024 512x512 384x384 256x256 192x192 152x152 168x168 144x144 128x128 96x96 72x72 48x48",
+		"type": "image/svg+xml"
+	}]
+}

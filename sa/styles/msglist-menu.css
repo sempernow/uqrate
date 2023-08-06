@@ -1,0 +1,76 @@
+
+/*  msgListMenu  */
+
+#msg-list-menu ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+
+    /*  Sizing  */
+    font-size: .7em;
+    height: 3em;
+    padding-bottom:.15em;
+
+    font-weight: bold;
+    color: var(--menu-link-color);
+    background-color: var(--header-page-bkgnd);
+}
+#msg-list-menu li {
+    width: 100%;
+    text-align: center;
+    font-size: 2em;
+    padding: .3em .5em .3em .5em;
+}
+#msg-list-menu li[data-count]::after {
+    content: attr(data-count);
+    padding-left: 1em;
+    opacity: .4;
+}
+#msg-list-menu li.toggle {
+    display: flex;
+    align-items: center;
+    padding: .5em;
+    justify-content: flex-end; 
+}
+#msg-list-menu li.toggle em {
+    margin-right: .5em;
+}
+#msg-list-menu li[data-disable=true] {
+    opacity: .4;
+}
+#msg-list-menu li span {
+    margin-left: .5em;
+    margin-top: .1em;
+}
+#msg-list-menu li:hover {
+    color: var(--text-bkgnd);
+    background: var(--link-color);
+}
+#msg-list-menu li:active, 
+#msg-list-menu li:focus {
+    opacity: .8;
+}
+#msg-list-menu li.active {
+    color: var(--menu-active-color);
+    background: var(--msglist-menu-active-bkgnd);
+}
+#msg-list-menu li svg:hover {
+    fill: var(--link-color);
+    background: var(--text-bkgnd);
+}
+
+#msg-list-menu svg {
+    position: relative;
+    width: calc(var(--msg-option-svg-size) * 0.65);
+    height: calc(var(--msg-option-svg-size) * 0.65);
+
+    fill: var(--header-page-bkgnd);
+    background: var(--menu-link-color);
+    border-radius: 50%;
+}
+/*  msgs-toggler.js FX  */
+#msg-list-menu svg.hover {
+    fill: var(--link-color);
+    background: var(--text-bkgnd);
+}

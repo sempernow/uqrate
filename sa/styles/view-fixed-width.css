@@ -1,0 +1,16 @@
+/* view =< (main + aside) */
+@media only screen and (min-width : 600px) {
+    #view {
+        --width-view: var(--width-main);
+    }
+    #channel aside.left { /* guarantee, else fail @ boundary */
+       --width-aside: var(--width-main);
+    }
+}
+/* view =< (main) */ /*  16px * 26.7em = 587.2px  */
+@media only screen and (max-width : 600px) {
+    #view {
+        --width-main: 100%;
+        --width-view: 100%;
+    }
+}
